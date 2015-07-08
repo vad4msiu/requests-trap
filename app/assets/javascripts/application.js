@@ -23,7 +23,8 @@ function subscribe(publish_key, subscribe_key, channel) {
 
   var pubnub = PUBNUB({
     publish_key   : publish_key,
-    subscribe_key : subscribe_key
+    subscribe_key : subscribe_key,
+    ssl           : true
   })
 
   pubnub.subscribe({
