@@ -1,5 +1,5 @@
 class Request < ActiveRecord::Base
-  belongs_to :trap, primary_key: 'name'
+  belongs_to :trap
 
   validates :trap, presence: true
 

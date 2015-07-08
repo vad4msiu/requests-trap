@@ -14,7 +14,12 @@ class JsonParser
     end
 
     def dump(value)
-      Oj.dump(value)
+      case value
+      when Hash, HashWithIndifferentAccess
+        Oj.dump(value.stringify_keys)
+      else
+        Oj.dump(value)
+      end
     end
   end
 end

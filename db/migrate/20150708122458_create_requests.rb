@@ -14,6 +14,6 @@ class CreateRequests < ActiveRecord::Migration
       t.timestamps null: false
     end
 
-    add_foreign_key :requests, :traps, primary_key: 'name'
+    add_foreign_key :requests, :traps
   end
 end

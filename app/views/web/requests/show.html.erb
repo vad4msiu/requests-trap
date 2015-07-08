@@ -1,0 +1,24 @@
+<%= render 'header' %>
+
+<h3>Request</h1>
+
+<dl>
+  <dt>created_at</dt>
+  <dd><%= @request.created_at %></dd>
+  <dt>remote_ip</dt>
+  <dd><%= @request.remote_ip %></dd>
+  <dt>@request_method</dt>
+  <dd><%= @request.request_method %></dd>
+  <dt>scheme</dt>
+  <dd><%= @request.scheme %></dd>
+  <dt>query_string</dt>
+  <dd><%= @request.query_string %></dd>
+  <dt>query_params</dt>
+  <dd><%= simple_hash_format(@request.query_params) %></dd>
+  <dt>cookies</dt>
+  <dd><%= simple_hash_format(@request.cookies) %></dd>
+  <dt>headers</dt>
+  <dd><%= simple_hash_format(@request.headers) %></dd>
+  <dt>raw</dt>
+  <dd><%= simple_format @request.raw %></dd>
+</dl>

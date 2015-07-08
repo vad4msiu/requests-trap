@@ -6,15 +6,15 @@ class RequestCaptureService
   end
 
   def perform
-    trap = Trap.find_or_initialize_by(name: trap_id)
+    trap = Trap.find_or_initialize_by(id: trap_id)
     trap.requests.new(
       remote_ip:      request.remote_ip,
       request_method: request.method,
       scheme:         request.scheme,
       query_string:   request.query_string,
-      query_params:   request.query_parameters,
-      cookies:        request.cookies,
-      headers:        request_headers ,
+      query_params:   request.query_parameters.to_hash,
+      cookies:        request.cookies.to_hash,
+      headers:        request_headers .to_hash,
       raw:            request_raw
     )
 

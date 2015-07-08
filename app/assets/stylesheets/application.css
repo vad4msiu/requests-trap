@@ -14,3 +14,13 @@
  *= require bootstrap/dist/css/bootstrap.min.css
  *= require_self
  */
+
+.main {
+  width: 1024px;
+  margin: 0 auto;
+}
+
+.requests td {
+  max-width: 100px;
+  word-break: break-all;
+}

@@ -1,0 +1,42 @@
+<%= render 'header' %>
+
+<h3>Requests</h1>
+<table class="table table-striped requests">
+  <tr>
+    <th>created_at</th>
+    <th>remote_ip</th>
+    <th>request_method</th>
+    <th>scheme</th>
+    <th>query_string</th>
+    <th>query_params</th>
+    <th>cookies</th>
+    <th>headers</th>
+    <th>raw</th>
+    <th>#</th>
+  </tr>
+  <% @requests.each do |request|%>
+    <tr>
+      <td><%= request.created_at %></td>
+      <td><%= request.remote_ip %></td>
+      <td><%= request.request_method %></td>
+      <td><%= request.scheme %></td>
+      <td><%= request.query_string %></td>
+      <td><%= simple_hash_format(request.query_params) %></td>
+      <td>
+        <%- modal_id = "modal-cookies-#{ request.id }" %>
+        <%= render 'modal', id: modal_id, body: request.cookies, title: 'Cookies' %>
+      </td>
+      <td>
+        <%- modal_id = "modal-headers-#{ request.id }" %>
+        <%= render 'modal', id: modal_id, body: request.headers, title: 'Headers' %>
+      </td>
+      <td>
+        <%- modal_id = "modal-raw-#{ request.id }" %>
+        <%= render 'modal', id: modal_id, body: request.raw, title: 'Raw' %>
+      </td>
+      <td><%= link_to "show", request_path(@trap.id, request), class: 'btn btn-primary' %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= paginate @requests %>

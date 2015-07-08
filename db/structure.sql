@@ -82,7 +82,7 @@ CREATE TABLE schema_migrations (
 --
 
 CREATE TABLE traps (
-    name character varying NOT NULL,
+    id character varying NOT NULL,
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL
 );
@@ -108,7 +108,7 @@ ALTER TABLE ONLY requests
 --
 
 ALTER TABLE ONLY traps
-    ADD CONSTRAINT traps_pkey PRIMARY KEY (name);
+    ADD CONSTRAINT traps_pkey PRIMARY KEY (id);
 
 
 --
@@ -130,7 +130,7 @@ CREATE UNIQUE INDEX unique_schema_migrations ON schema_migrations USING btree (v
 --
 
 ALTER TABLE ONLY requests
-    ADD CONSTRAINT fk_rails_b6a996dabf FOREIGN KEY (trap_id) REFERENCES traps(name);
+    ADD CONSTRAINT fk_rails_b6a996dabf FOREIGN KEY (trap_id) REFERENCES traps(id);
 
 
 --
