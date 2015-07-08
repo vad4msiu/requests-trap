@@ -1,0 +1,21 @@
+{
+  "name": "requests-trap",
+  "version": "0.0.0",
+  "authors": [
+    "vad4msiu <vad4msiu@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor/assets/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.x",
+    "jquery-ujs": "~1.0.x",
+    "bootstrap": "~3.3.x"
+  }
+}
