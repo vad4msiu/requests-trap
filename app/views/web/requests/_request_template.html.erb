@@ -1,0 +1,83 @@
+<script id="request-template" type="text/template">
+  <tr>
+    <td>{{ request.created_at }}</td>
+    <td>{{ request.remote_ip }}</td>
+    <td>{{ request.request_method }}</td>
+    <td>{{ request.scheme }}</td>
+    <td>{{ request.query_string }}</td>
+    <td>{{{ request.query_params }}}</td>
+
+    <td>
+      <a href="#" data-toggle="modal" data-target="#modal-cookies-{{ request.id }}">
+        display
+      </a>
+
+      <div class="modal fade" id="modal-cookies-{{ request.id }}" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+              <h4 class="modal-title" id="myModalLabel">Cookies</h4>
+            </div>
+            <div class="modal-body">
+              {{{ request.cookies }}}
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </td>
+
+    <td>
+      <a href="#" data-toggle="modal" data-target="#modal-headers-{{ request.id }}">
+        display
+      </a>
+
+      <div class="modal fade" id="modal-headers-{{ request.id }}" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+              <h4 class="modal-title" id="myModalLabel">Headers</h4>
+            </div>
+            <div class="modal-body">
+                {{{ request.headers }}}
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </td>
+
+    <td>
+      <a href="#" data-toggle="modal" data-target="#modal-raw-{{ request.id }}">
+        display
+      </a>
+
+      <div class="modal fade" id="modal-raw-{{ request.id }}" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+              <h4 class="modal-title" id="myModalLabel">Raw</h4>
+            </div>
+            <div class="modal-body">
+              {{{ request.raw }}}
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </td>
+
+    <td>
+      <a class="btn btn-primary" href="/{{ request.trap.id }}/requests/{{ request.id }}">show</a>
+    </td>
+  </tr>
+</script>

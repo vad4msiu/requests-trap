@@ -1,8 +1,19 @@
+<script type="text/javascript">
+  $(function() {
+    subscribe(
+      "<%= $pubnub.env[:publish_key] %>",
+      "<%= $pubnub.env[:subscribe_key] %>",
+      "<%= PublishService.channel_name_for_trap(@trap) %>"
+    );
+  });
+</script>
+
 <%= render 'header' %>
+<%= render 'request_template' %>
 
 <h3>Requests</h1>
 <table class="table table-striped requests">
-  <tr>
+  <tr class="headers">
     <th>created_at</th>
     <th>remote_ip</th>
     <th>request_method</th>
@@ -16,7 +27,7 @@
   </tr>
   <% @requests.each do |request|%>
     <tr>
-      <td><%= request.created_at %></td>
+      <td><%= request.created_at.strftime("%T %D") %></td>
       <td><%= request.remote_ip %></td>
       <td><%= request.request_method %></td>
       <td><%= request.scheme %></td>

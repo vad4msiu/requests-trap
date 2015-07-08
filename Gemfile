@@ -9,6 +9,7 @@ gem 'oj'
 gem 'kaminari'
 gem 'rails_12factor'
 gem 'puma'
+gem 'pubnub'
 
 group :development, :test do
   gem 'fabrication'

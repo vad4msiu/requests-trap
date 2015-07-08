@@ -1,3 +1,4 @@
+<% readme = <<-README
 REQUESTS-TRAP The rules
 - this app must be written in Rails 
 - commit early and often 
@@ -44,3 +45,6 @@ Each request item should display all the information contained in the request, w
 
 Also include a copy of the raw response, hidden by default, opened by clicking a link.
 New requests should appear on the page in real time, without a page refresh. 
+README
+%>
+<%= simple_format readme %>

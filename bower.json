@@ -16,6 +16,8 @@
   "dependencies": {
     "jquery": "~2.1.x",
     "jquery-ujs": "~1.0.x",
-    "bootstrap": "~3.3.x"
+    "bootstrap": "~3.3.x",
+    "pubnub": "~3.7.x",
+    "mustache": "~1.1.x"
   }
 }
