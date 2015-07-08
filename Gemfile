@@ -1,10 +1,14 @@
 source 'https://rubygems.org'
 
+ruby "2.2.1"
+
 gem 'rails', '4.2.1'
 gem 'pg'
 gem 'uglifier', '>= 1.3.0'
 gem 'oj'
 gem 'kaminari'
+gem 'rails_12factor'
+gem 'puma'
 
 group :development, :test do
   gem 'fabrication'
